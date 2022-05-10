@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/contact.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="./css/bgColor.css">
+
+	<script type="text/javascript" src="./vue.global.js"></script>
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg nav bg-dark" role="navigation">
+			<a href="#" class="navbar-brand">Mum's <span>Spaghetti</span></a>
+			<button class="navbar-toggler navbar-dark bg-dark" data-toggle="collapse" data-target="#menu" type="button">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-center" id="menu">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="index.html" class="nav-link">Home</a>
+					</li>
+					<li class="nav-item">
+						<a href="contact.html" class="nav-link">Contact Us</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link" @click="closeSidebar()">Cart</a>
+					</li>
+				</ul>
+
+
+				<div id="toggle" @click="darkModeBtn()">
+					<i class="indicator"></i>
+				</div>
+			</div>
+			
+		</nav>
+								<!--- END OF THE NAVIGATION SECTION --->
+		
+	</header>
+							   <!--- END OF HEADER SECTION ------------>
+
+	<section>
+		<div id="contact"></div>
+		<div class="content col-md-10 col-sm-10 col-10 text-light">
+			<div class="row justify-content-between">
+				<div class="col-md-5 col-sm-4">
+					<div class="d-flex">
+						<i class="fa fa-location-arrow"></i>
+						<div>
+							<h1>Address</h1>
+							<p>4671 sugar camp road, Owatonna, Minnesota, 55060</p>
+						</div>
+					</div>
+
+					<div class="d-flex">
+						<i class="fa fa-phone"></i>
+						<div>
+							<h1>Phone</h1>
+							<p>08059974620</p>
+						</div>
+					</div>
+
+					<div class="d-flex">
+						<i class="fa fa-mail-bulk"></i>
+						<div>
+							<h1>Email</h1>
+							<p>harkanzyempire001@gmail.com</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5 col-sm-8 form-wrapper bg-light">
+					<form class="form text-dark">
+						<div class="form-group">
+							<label for="fullname" class="form-text">Full Name</label>
+							<input type="text" name="" id="fullname">
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="form-text">Email</label>
+							<input type="email" name="" id="email">
+						</div>
+
+						<div class="form-group">
+							<label for="message" class="form-text">Type your Message</label>
+							<input type="text" name="" id="message">
+						</div>
+
+						<div id="btn">
+							<button class="btn">
+								<span>Submit</span>
+								<i class="fab fa-telegram" style="color: red"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript" src="../JS/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../JS/popper.js"></script>
+	<script type="text/javascript" src="../JS/bootstrap.min.js"></script>
+</body>
+</html>

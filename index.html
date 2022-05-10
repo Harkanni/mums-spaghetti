@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filter Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./bootstrap4/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="./css/bgColor.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+	<script type="text/javascript" src="./vue.global.js"></script>
+
+
+</head>
+<body style="color: #fff" id="app">
+									<!--- THE NAVIGATION SECTION --->
+	<header>
+		<nav class="navbar navbar-expand-lg nav bg-dark" role="navigation">
+			<a href="#" class="navbar-brand">Mum's <span>Spaghetti</span></a>
+			<button class="navbar-toggler navbar-dark bg-dark" data-toggle="collapse" data-target="#menu" type="button">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-center" id="menu">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="#" class="nav-link">Home</a>
+					</li>
+					<li class="nav-item">
+						<a href="contact.html" class="nav-link">Contact Us</a>
+					</li>
+					<li class="nav-item">
+						<a href="#aboutUs" class="nav-link">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link" @click="closeSidebar()">Cart</a>
+					</li>
+				</ul>
+
+
+				<div id="toggle" @click="darkModeBtn()">
+					<i class="indicator"></i>
+				</div>
+			</div>
+			
+		</nav>
+								<!--- END OF THE NAVIGATION SECTION --->
+								<!--- BANNER -------------------------->
+		<div class="banner">
+			<div  id="desc">
+				<p class="text-light">Welcome to Mum's <span>Spaghetti</span></p>
+				<button>Order now!</button>
+			</div>
+		</div>
+							   <!--- END OF BANNER ---------------------->
+	</header>
+							   <!--- END OF HEADER SECTION -------------->
+
+	<section id="aboutUs" class="py-3 mb-5">
+		<div class="container-fluid">
+			<div class="row flexItem">
+				<div class="col-md-6 col-sm-12">
+					<h1>About <span>US</span></h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<div class="col-md-5 col-sm-12" id="aboutUsImg"> </div>
+			</div>
+		</div>
+	</section>
+
+	<section id="ourStore" class="">
+		<div class="container-fluid">
+			<h1 class="my-4">Check out Our<span>Store</span></h1>
+			<div class="btn-div">
+				<ul class="filters" id="btnContainer">
+					<li><button class="btn btn-item active" id="btn" @click="filterElement('all')">All</button></li>
+					<li><button class="btn btn-item " id="btn" @click="filterElement('cakes')">Cakes</button></li>
+					<li><button class="btn btn-item " id="btn" @click="filterElement('cupCakes')">Cupcakes</button></li>
+					<li><button class="btn btn-item " id="btn" @click="filterElement('sweet')">Sweet</button></li>
+					<li><button class="btn btn-item " id="btn" @click="filterElement('doughnut')">Doughnut</button></li>
+				</ul>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 item-img mt-3">
+				<div class="row">
+					<div class="col-md-4 col-sm 6 mb-3 card filterDiv show" v-for="(item, i) in inventory" :key="i" :class="item.icon">
+						<div >
+							<div class="card-header">
+								<div>
+									<p style="float: left; margin-left: 20px">{{ item.name }}</p>
+									<p style="float: right;margin-right: 20px">${{ item.price.USD }}</p>
+								</div>
+							</div>
+							<div class="card-body">
+								<img :src="item.img" class="img-fluid">
+							</div>
+							<div class="card-footer">
+								<button class="cart-btn" @click="addToCart(item.name, item.quantity)">Add To Cart</button>
+								<input type="number" v-model.number="item.quantity">
+							</div>
+								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+						<!---- END OF OUR STORE SECTION ---------->
+
+						<!---- TESTIMONIAL SECTION --------------->
+	<section id="testimonial">
+		<div class="container-fluid pl-4 pr-4">
+			<h1 class="text-center">We're preety<span>Cool</span></h1>
+			<div class="mr-1 ml-1">
+				<div class="row superBox">
+					<div class="gitImg mr-1">
+						<img src="./img/img1.png" class="img-fluid">
+					</div>
+						<div class="owl-carousel owl-theme carouselBox mr-1 shadow" id="shadow">
+							<div class="testimonyBox" style="width: 100%">
+								<div class="card" style="">
+									<img src="./img/img2.png" class="card-img-top">
+									<div class="card-body">
+										<p class="card-text">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										</p>
+									</div>
+
+									<div class="card-footer">
+										<p>MerylStreep</p>
+										<p>C.E.O Meryl Monroe Motion Pictures</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="testimonyBox" style="width: 100%">
+								<div class="card" style="">
+									<img src="./img/img2.png" class="card-img-top">
+									<div class="card-body">
+										<p class="card-text">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										</p>
+									</div>
+									<div class="card-footer">
+										<p>MerylStreep</p>
+										<p>C.E.O Meryl Monroe Motion Pictures</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="testimonyBox" style="width: 100%">
+								<div class="card" style="">
+									<img src="./img/img2.png" class="card-img-top">
+									<div class="card-body">
+										<p class="card-text">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										</p>
+									</div>
+									<div class="card-footer">
+										<p>MerylStreep</p>
+										<p>C.E.O Meryl Monroe Motion Pictures</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="testimonyBox" style="width: 100%">
+								<div class="card" style="">
+									<img src="./img/img2.png" class="card-img-top">
+									<div class="card-body">
+										<p class="card-text">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+										</p>
+									</div>
+									<div class="card-footer">
+										<p>MerylStreep</p>
+										<p>C.E.O Meryl Monroe Motion Pictures</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+						
+
+					<div class="mr-1 gitImg">
+						<img src="./img/img2.png" class="img-fluid">
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+
+	<section id="aside" :data-viscible="active">
+		<aside class="aside p-2">
+			<div class="close-aside d-flex justify-content-between">
+				<h5>Close</h5>
+				<button @click="closeSidebar()" class="btn">X</button>
+			</div>
+
+			<div class="table-wrapper w-100">
+				<table class="w-100">
+					<tr>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Total</th>
+					</tr>
+					<tr  v-for="(quantity, product, i) in cart" :key=i>
+						<td>{{ product }}</td>
+						<td>{{ quantity }}</td>
+						<td>${{ getPrice(product) }}</td>
+						<td>${{ (quantity * getPrice(product)).toFixed(2) }}</td>
+						<td>
+							<button class="btn remove-btn">&times;</button>
+						</td>
+					</tr>
+				</table>
+				<div class="total">
+					<h2>Total: <span>${{ calculateTotal }}</span></h2>
+				</div>
+			</div>
+
+			<p class="text-center" v-if="!Object.keys(cart).length">No Item In Cart</p>
+		</aside>
+	</section>
+
+	<footer class="footer">
+		<div class="text-center social">
+			<h4 class="mb-2 text-light">Follow Us</h4>
+			<div class="mb-2 social-icons">
+				<span><a href="#"><i class="fab fa-facebook fa-2x"></a></i></span>
+				<span><a href="#"><i class="fab fa-twitter fa-2x"></i></a></span>
+				<span><a href="#"><i class="fab fa-instagram fa-2x"></i></a></span>
+				<span><a href="#"><i class="fab fa-pinterest fa-2x"></i></a></span>
+			</div>
+			<p class="">&copy; copyright: Maven_Codes</p>
+		</div>
+	</footer>	
+
+
+<script type="text/javascript" src="./bootstrap4/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="./bootstrap4/popper.js"></script>
+<script type="text/javascript" src="./bootstrap4/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+	<script type="text/javascript">
+		const app = Vue.createApp({
+			data: function(){
+				return {
+					active: false,
+					isViscible: false,
+					inventory: [],
+					cart: {}
+				}
+			},
+			computed: {
+				calculateTotal() {
+					let value = Object.entries(this.cart).reduce((prev, [key, value], i) => {
+						return prev + (value * this.getPrice(key))
+					}, 0)
+
+					return value.toFixed(2)
+				}
+			},
+			methods: {
+				closeSidebar() {
+					this.active = !this.active
+				},
+				darkModeBtn(){
+					//THIS SCRIPT TOGGLES BACKGROUND COLOR, IT SWITCHES BETWEEN LIGHT AND DARK
+					var toggler = document.getElementById("toggle");
+					toggler.onclick = function () {
+						//document.querySelector("body")
+						toggler.classList.toggle("active");
+						document.querySelector("body").classList.toggle("active")
+						//FOR GENERAL TEXT COLORS
+						document.querySelector("body").classList.toggle("textColor")
+						// FOR TESTIMONIALS
+						document.getElementById("shadow").classList.toggle("shadow")
+						// FOR CARD FOOTER
+						document.querySelectorAll(".card-footer").forEach((e)=>{
+						  e.classList.toggle("active")
+						})
+						//	FOR SIDEBAR COLOR
+						document.querySelector('.aside').classList.toggle("active")
+					}
+				},
+				addToCart(name, quantity){
+					if(!this.cart[name]) this.cart[name] = 0;
+
+					this.cart[name] += quantity;
+					console.log(this.cart)
+				},
+				getPrice(product){
+					var x = this.inventory.find((e)=> e.name == product)
+					return x.price.USD
+				},
+
+
+
+
+				filterElement(c){
+					if(c==="all") c=""
+					var x = document.getElementsByClassName("filterDiv")
+					//console.log("This is the length of X:", x.length)
+					for(var i=0; i<x.length; i++){
+						this.removeClass(x[i], "show")
+						
+						if(x[i].className.includes(c)){
+							x[i].className += " "+"show"
+							//console.log(i)
+						}
+					}
+				},
+				removeClass(element, clas){
+					var y = element.className;
+					for(var i=0; i<y.length; i++){
+						if(y.slice(i, i+4)===clas){ 
+							//console.log("Found Something to remove");
+							y = y.slice(0, i) + y.slice(i+4, y.length+1)
+							//console.log(y)
+						}
+					}
+					element.className = y
+				},
+				activeBtn() {
+					$(".filters .btn").on("click", function(){
+						$(".filters .btn").removeClass("active");
+						$(this).addClass("active");
+					});
+				},
+				owl() {
+					$('.owl-carousel').owlCarousel({
+						items: 1,
+						autoplay: true,
+						dots: true,
+						loop: true,
+						autoplayHoverPause: true,
+						speed: 100000
+					})
+				}
+			},
+			async beforeMount(){
+				const res = await fetch('./food.json')
+				const data = await res.json()
+				this.inventory = data;
+
+				this.activeBtn()
+				
+			},
+			mounted() {
+				this.owl()
+			}
+		})
+		app.mount("#app")
+	</script>
+</body>
+</html>

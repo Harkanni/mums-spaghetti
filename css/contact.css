@@ -1,0 +1,88 @@
+body {
+  height: 100vh;
+  overflow-x: hidden
+}
+#contact {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+              url("../img/image3.jpg");
+  filter: blur(4px)
+}
+.content {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  transform: translate(8%, 50%)
+}
+@media screen and (max-width:560px) {
+  .content {
+    transform: translate(7%, 20%)
+  }
+  .content > div > div > div > i {
+    translate: 0px 5px;
+  }
+  .content > div > div > div:nth-of-type(3) > i,
+  .content > div > div > div:nth-of-type(3) > div,
+  .content > div > div > div:nth-of-type(2){
+    translate: 0px -9px !important;
+  }
+  .content > div > div > div:nth-of-type(2) > i{
+    translate: 0px -1px !important;
+  }
+  .form #btn {
+    margin: 30px 0px 10px !important;
+  }
+}
+
+.content > div > div > div > div {
+  margin: 0px 0px 30px 10px
+}
+.content > div > div > div > i {
+  text-align: center;
+  display: inline !important;
+  border: 1px solid;
+  height: 73px;
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 50%;
+  transform: translateY(-8px);
+  margin-bottom: 10px
+}
+.content > div > div > div:first-of-type > i {
+  transform: translateY(1px)
+}
+.content h1 {
+  font-size: 15px;
+  color: red
+}
+
+.form-wrapper {
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 20px;
+}
+form{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+.form input {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #000;
+  width: 100%;
+  height: 20px
+}
+.form input:focus{
+  border-color: red
+}
+.form #btn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.form button{
+  cursor: pointer
+}
